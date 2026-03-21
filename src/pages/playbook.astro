@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const posts = await getCollection('playbook');
+const sorted = posts.sort((a, b) => (a.data.part * 100 + a.data.order) - (b.data.part * 100 + b.data.order));
+const parts = [...new Set(sorted.map(p => p.data.part))].sort();
+---
+<Base title="Playbook" description="Complete guide to building an AI agent organization">
+  <div class="container" style="padding-top:var(--space-xl)">
+    <h1 style="margin-bottom:var(--space-lg)">The AI Org Playbook</h1>
+    {parts.map(part => (
+      <div style="margin-bottom:var(--space-lg)">
+        <h2 style="color:var(--accent-cyan);margin-bottom:var(--space-sm)">Part {part}</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-md)">
+          {sorted.filter(p => p.data.part === part).map(post => (
+            <a href={`/playbook/${post.slug}`} class="glass-card" style="padding:var(--space-md);text-decoration:none;color:inherit">
+              <div style="font-weight:600;margin-bottom:4px">{post.data.title}</div>
+              <div style="font-size:var(--text-xs);color:var(--text-muted)">{post.data.description}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</Base>

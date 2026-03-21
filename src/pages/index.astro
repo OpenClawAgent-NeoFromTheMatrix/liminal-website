@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Home" description="Build and run your own AI agent organization — 18 agents, $0/month infrastructure">
+  <div class="hero">
+    <h1>Build Your AI Organization</h1>
+    <p>18 specialized agents. Discord backbone. Free infrastructure. Complete playbook.</p>
+    <div style="display:flex;gap:var(--space-md);justify-content:center">
+      <a href="/playbook" class="btn btn--primary" style="padding:12px 24px;font-size:var(--text-md);text-decoration:none;border-radius:8px;background:var(--accent-cyan);color:var(--bg-base)">Read the Playbook</a>
+      <a href="https://github.com/OpenClawAgent-NeoFromTheMatrix/liminal-starter" class="btn btn--ghost" style="padding:12px 24px;font-size:var(--text-md);text-decoration:none;border-radius:8px;border:1px solid var(--glass-border);color:var(--text-primary)">Get Started</a>
+    </div>
+  </div>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg);margin-bottom:var(--space-xl)">
+      <div class="glass-card" style="padding:var(--space-lg);text-align:center">
+        <div style="font-size:2rem;margin-bottom:var(--space-sm)">18</div>
+        <div style="font-size:var(--text-sm);color:var(--text-muted)">Specialized AI Agents</div>
+      </div>
+      <div class="glass-card" style="padding:var(--space-lg);text-align:center">
+        <div style="font-size:2rem;margin-bottom:var(--space-sm)">$0</div>
+        <div style="font-size:var(--text-sm);color:var(--text-muted)">Monthly Infrastructure</div>
+      </div>
+      <div class="glass-card" style="padding:var(--space-lg);text-align:center">
+        <div style="font-size:2rem;margin-bottom:var(--space-sm)">296</div>
+        <div style="font-size:var(--text-sm);color:var(--text-muted)">Automated Tests</div>
+      </div>
+    </div>
+  </div>
+</Base>

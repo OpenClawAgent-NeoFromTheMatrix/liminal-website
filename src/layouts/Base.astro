@@ -1,0 +1,49 @@
+---
+interface Props { title: string; description?: string; }
+const { title, description = 'Build and run your own AI agent organization' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title} — Liminal</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <!-- Open Graph -->
+  <meta property="og:title" content={`${title} — Liminal`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${title} — Liminal`} />
+  <meta name="twitter:description" content={description} />
+  <link rel="stylesheet" href="/css/liminal.css" />
+  <style>
+    body { background: var(--bg-base); color: var(--text-primary); font-family: var(--font-sans); margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
+    .hero { padding: 80px 0; text-align: center; }
+    .hero h1 { font-size: 3rem; margin: 0 0 var(--space-md); background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: var(--text-lg); color: var(--text-muted); max-width: 600px; margin: 0 auto var(--space-lg); }
+    nav.top { display: flex; align-items: center; justify-content: space-between; padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--glass-border); }
+    nav.top a { color: var(--text-muted); text-decoration: none; font-size: var(--text-sm); margin-left: var(--space-md); }
+    nav.top a:hover { color: var(--accent-cyan); }
+    .logo { font-size: var(--text-lg); font-weight: 700; color: var(--accent-cyan); text-decoration: none; }
+    footer { text-align: center; padding: var(--space-xl); color: var(--text-muted); font-size: var(--text-xs); border-top: 1px solid var(--glass-border); margin-top: var(--space-xl); }
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <a href="/" class="logo">Liminal</a>
+    <div>
+      <a href="/playbook">Playbook</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/docs">Docs</a>
+      <a href="https://github.com/OpenClawAgent-NeoFromTheMatrix/liminal-starter">GitHub</a>
+    </div>
+  </nav>
+  <slot />
+  <footer>Built with obsession. Documented with precision. &copy; 2026 Liminal.</footer>
+</body>
+</html>

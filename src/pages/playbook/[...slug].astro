@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('playbook');
+  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<Base title={post.data.title} description={post.data.description}>
+  <div class="container" style="padding-top:var(--space-xl);max-width:800px">
+    <a href="/playbook" style="color:var(--accent-cyan);font-size:var(--text-sm);text-decoration:none">← Back to Playbook</a>
+    <h1 style="margin-top:var(--space-md)">{post.data.title}</h1>
+    <div class="glass-card" style="padding:var(--space-lg);line-height:1.8;font-size:var(--text-sm)">
+      <Content />
+    </div>
+  </div>
+</Base>
