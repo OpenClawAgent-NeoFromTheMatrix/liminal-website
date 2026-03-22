@@ -1,0 +1,21 @@
+name: Security Concern
+description: Report a security issue (use private reporting for sensitive issues)
+labels: ["security", "P0-critical"]
+body:
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical (data exposure, auth bypass)
+        - High (privilege escalation, injection)
+        - Medium (information leak, weak config)
+        - Low (best practice violation)
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true

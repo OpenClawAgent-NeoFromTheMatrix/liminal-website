@@ -1,0 +1,29 @@
+name: Agent Task
+description: Create a task for an agent
+labels: ["task"]
+body:
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Assigned Agent
+      options:
+        - Developer
+        - Memory
+        - Research
+        - Security
+        - Monitor
+        - CEO
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Description
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: "- [ ] Criterion 1\n- [ ] Criterion 2"
