@@ -1,0 +1,15 @@
+{
+  "name": "aura",
+  "version": "1.0.0",
+  "project": "liminal-website",
+  "stack": "css-vars",
+  "theme_source": null,
+  "project_url": "http://localhost:3000",
+  "build_command": null,
+  "screenshot_tool": "playwright",
+  "validation": {
+    "enabled": true,
+    "max_iterations": 3,
+    "reference_dir": "references/"
+  }
+}
